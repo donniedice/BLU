@@ -1,4 +1,4 @@
-## Interface: 100000
+## Interface: 30400
 ## Version: 0.0.3
 ## Title: |cffffffffBetter|r Level Up!
 ## Notes: Grats!
