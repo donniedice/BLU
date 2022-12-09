@@ -15,7 +15,6 @@ end
 function BLU:OnEnable()
 	self:RegisterEvent("PLAYER_LEVEL_UP")
 	self:RegisterEvent("QUEST_TURNED_IN")
-	self:RegisterEvent("MAJOR_FACTION_RENOWN_LEVEL_CHANGED")
 	self:RegisterEvent("ACHIEVEMENT_EARNED")
 end
 function BLU:PLAYER_LEVEL_UP(self, event, ...)
@@ -154,47 +153,6 @@ Event_Frame_Rep:SetScript("OnEvent",
 	       end
 	   end
 end);
-function BLU:MAJOR_FACTION_RENOWN_LEVEL_CHANGED(self, event, ...)
-		if BLU.db.profile.RenownSoundSelect == 1 then
-				PlaySoundFile(569593)
-			elseif BLU.db.profile.RenownSoundSelect == 2 then
-				PlaySoundFile("Interface\\Addons\\BLU\\Sounds\\EQLU.ogg", "MASTER")
-			elseif BLU.db.profile.RenownSoundSelect == 3 then
-				PlaySoundFile("Interface\\Addons\\BLU\\Sounds\\FFLU.ogg", "MASTER")
-			elseif BLU.db.profile.RenownSoundSelect == 4 then
-				PlaySoundFile("Interface\\Addons\\BLU\\Sounds\\FNLU.ogg", "MASTER")
-			elseif BLU.db.profile.RenownSoundSelect == 5 then
-				PlaySoundFile("Interface\\Addons\\BLU\\Sounds\\KH3LU.ogg", "MASTER")
-			elseif BLU.db.profile.RenownSoundSelect == 6 then
-				PlaySoundFile("Interface\\Addons\\BLU\\Sounds\\LoLLU.ogg", "MASTER")
-			elseif BLU.db.profile.RenownSoundSelect == 7 then
-				PlaySoundFile("Interface\\Addons\\BLU\\Sounds\\LoZN64.ogg", "MASTER")
-			elseif BLU.db.profile.RenownSoundSelect == 8 then
-				PlaySoundFile("Interface\\Addons\\BLU\\Sounds\\MSLU.ogg", "MASTER")
-			elseif BLU.db.profile.RenownSoundSelect == 9 then
-				PlaySoundFile("Interface\\Addons\\BLU\\Sounds\\MCLU.ogg", "MASTER")
-			elseif BLU.db.profile.RenownSoundSelect == 10 then
-				PlaySoundFile("Interface\\Addons\\BLU\\Sounds\\MW2LU.ogg", "MASTER")
-			elseif BLU.db.profile.RenownSoundSelect == 11 then
-				PlaySoundFile("Interface\\Addons\\BLU\\Sounds\\MWLU.ogg", "MASTER")
-			elseif BLU.db.profile.RenownSoundSelect == 12 then
-				PlaySoundFile("Interface\\Addons\\BLU\\Sounds\\OSRSLU.ogg", "MASTER")
-			elseif BLU.db.profile.RenownSoundSelect == 13 then
-				PlaySoundFile("Interface\\Addons\\BLU\\Sounds\\PoELU.ogg", "MASTER")
-			elseif BLU.db.profile.RenownSoundSelect == 14 then
-				PlaySoundFile("Interface\\Addons\\BLU\\Sounds\\PkmnLU.ogg", "MASTER")
-			elseif BLU.db.profile.RenownSoundSelect == 15 then
-				PlaySoundFile("Interface\\Addons\\BLU\\Sounds\\SRLU.ogg", "MASTER")
-			elseif BLU.db.profile.RenownSoundSelect == 16 then
-				PlaySoundFile("Interface\\Addons\\BLU\\Sounds\\SHHLU.ogg", "MASTER")
-			elseif BLU.db.profile.RenownSoundSelect == 17 then
-				PlaySoundFile("Interface\\Addons\\BLU\\Sounds\\SMB3LU.ogg", "MASTER")
-			elseif BLU.db.profile.RenownSoundSelect == 18 then
-				PlaySoundFile("Interface\\Addons\\BLU\\Sounds\\WC3LU.ogg", "MASTER")
-			elseif BLU.db.profile.RenownSoundSelect == 19 then
-				PlaySoundFile("Interface\\Addons\\BLU\\Sounds\\W3LU.ogg", "MASTER")
-		end
-end
 function BLU:ACHIEVEMENT_EARNED(self, event, ...)
 	if BLU.db.profile.AchievementSoundSelect == 1 then
 			PlaySoundFile(569143)
@@ -318,47 +276,6 @@ function TestRepSound()
 			PlaySoundFile("Interface\\Addons\\BLU\\Sounds\\W3LU.ogg", "MASTER")
 	end
 end
-function TestRenownSound()
-	if BLU.db.profile.RenownSoundSelect == 1 then
-			PlaySoundFile(4745441)
-		elseif BLU.db.profile.RenownSoundSelect == 2 then
-			PlaySoundFile("Interface\\Addons\\BLU\\Sounds\\EQLU.ogg", "MASTER")
-		elseif BLU.db.profile.RenownSoundSelect == 3 then
-			PlaySoundFile("Interface\\Addons\\BLU\\Sounds\\FFLU.ogg", "MASTER")
-		elseif BLU.db.profile.RenownSoundSelect == 4 then
-			PlaySoundFile("Interface\\Addons\\BLU\\Sounds\\FNLU.ogg", "MASTER")
-		elseif BLU.db.profile.RenownSoundSelect == 5 then
-			PlaySoundFile("Interface\\Addons\\BLU\\Sounds\\KH3LU.ogg", "MASTER")
-		elseif BLU.db.profile.RenownSoundSelect == 6 then
-			PlaySoundFile("Interface\\Addons\\BLU\\Sounds\\LoLLU.ogg", "MASTER")
-		elseif BLU.db.profile.RenownSoundSelect == 7 then
-			PlaySoundFile("Interface\\Addons\\BLU\\Sounds\\LoZN64.ogg", "MASTER")
-		elseif BLU.db.profile.RenownSoundSelect == 8 then
-			PlaySoundFile("Interface\\Addons\\BLU\\Sounds\\MSLU.ogg", "MASTER")
-		elseif BLU.db.profile.RenownSoundSelect == 9 then
-			PlaySoundFile("Interface\\Addons\\BLU\\Sounds\\MCLU.ogg", "MASTER")
-		elseif BLU.db.profile.RenownSoundSelect == 10 then
-			PlaySoundFile("Interface\\Addons\\BLU\\Sounds\\MW2LU.ogg", "MASTER")
-		elseif BLU.db.profile.RenownSoundSelect == 11 then
-			PlaySoundFile("Interface\\Addons\\BLU\\Sounds\\MWLU.ogg", "MASTER")
-		elseif BLU.db.profile.RenownSoundSelect == 12 then
-			PlaySoundFile("Interface\\Addons\\BLU\\Sounds\\OSRSLU.ogg", "MASTER")
-		elseif BLU.db.profile.RenownSoundSelect == 13 then
-			PlaySoundFile("Interface\\Addons\\BLU\\Sounds\\PoELU.ogg", "MASTER")
-		elseif BLU.db.profile.RenownSoundSelect == 14 then
-			PlaySoundFile("Interface\\Addons\\BLU\\Sounds\\PkmnLU.ogg", "MASTER")
-		elseif BLU.db.profile.RenownSoundSelect == 15 then
-			PlaySoundFile("Interface\\Addons\\BLU\\Sounds\\SRLU.ogg", "MASTER")
-		elseif BLU.db.profile.RenownSoundSelect == 16 then
-			PlaySoundFile("Interface\\Addons\\BLU\\Sounds\\SHHLU.ogg", "MASTER")
-		elseif BLU.db.profile.RenownSoundSelect == 17 then
-			PlaySoundFile("Interface\\Addons\\BLU\\Sounds\\SMB3LU.ogg", "MASTER")
-		elseif BLU.db.profile.RenownSoundSelect == 18 then
-			PlaySoundFile("Interface\\Addons\\BLU\\Sounds\\WC3LU.ogg", "MASTER")
-		elseif BLU.db.profile.RenownSoundSelect == 19 then
-			PlaySoundFile("Interface\\Addons\\BLU\\Sounds\\W3LU.ogg", "MASTER")
-	end
-end
 function TestQuestSound()
 	if BLU.db.profile.QuestSoundSelect == 1 then
 			PlaySoundFile(567439)
@@ -455,16 +372,6 @@ Event_Frame_Mute_Rep:SetScript("OnEvent",function()
 			MuteSoundFile(568016)
 	end
 end);
-local Event_Frame_Mute_Renown=CreateFrame("Frame");
-Event_Frame_Mute_Rep:RegisterEvent("PLAYER_STARTED_MOVING");
-Event_Frame_Mute_Rep:SetScript("OnEvent",function()
-	if BLU.db.profile.MuteRenownDefault == true then
-			MuteSoundFile(213204)
-			MuteSoundFile(4745441)
-			MuteSoundFile(4745443)
-			MuteSoundFile(4745445)
-	end
-end);
 local Event_Frame_Mute_Quest=CreateFrame("Frame");
 Event_Frame_Mute_Quest:RegisterEvent("PLAYER_STARTED_MOVING");
 Event_Frame_Mute_Quest:SetScript("OnEvent",function()
@@ -491,16 +398,6 @@ Event_Frame_Unmute_Rep:RegisterEvent("PLAYER_STARTED_MOVING");
 Event_Frame_Unmute_Rep:SetScript("OnEvent",function()
 	if BLU.db.profile.MuteRepDefault == false then
 			UnmuteSoundFile(568016)
-	end
-end);
-local Event_Frame_Unmute_Renown=CreateFrame("Frame");
-Event_Frame_Unmute_Renown:RegisterEvent("PLAYER_STARTED_MOVING");
-Event_Frame_Unmute_Renown:SetScript("OnEvent",function()
-	if BLU.db.profile.MuteRenownDefault == false then
-			UnmuteSoundFile(213204)
-			UnmuteSoundFile(4745441)
-			UnmuteSoundFile(4745443)
-			UnmuteSoundFile(4745445)
 	end
 end);
 local Event_Frame_Unmute_Quest=CreateFrame("Frame");
