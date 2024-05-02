@@ -41,7 +41,6 @@ end
 function BLU:OnEnable()
     
   -- Register events for the addon.
-    self:RegisterEvent("ACHIEVEMENT_EARNED")
     self:RegisterEvent("GLOBAL_MOUSE_DOWN")
     self:RegisterEvent("PLAYER_LEVEL_UP")
     self:RegisterEvent("PLAYER_ENTERING_WORLD")
@@ -108,25 +107,6 @@ local sounds = {
   [49] = "Interface\\Addons\\BLU\\Sounds\\W3QLU.ogg",
 }
 
--- Play a sound effect when the player earns an achievement.
-function BLU:ACHIEVEMENT_EARNED(self, event, ...)
-    local sound = sounds[BLU.db.profile.AchievementSoundSelect]
-    if sound then
-        PlaySoundFile(sound, "MASTER")
-    elseif BLU.db.profile.AchievementSoundSelect then
-        PlaySoundFile(569143, "MASTER")
-    end
-end
-
--- Test the sound effect associated with the achievement event.
-function TestAchievementSound()
-    local sound = sounds[BLU.db.profile.AchievementSoundSelect]
-    if sound then
-        PlaySoundFile(sound, "MASTER")
-    elseif BLU.db.profile.AchievementSoundSelect then
-        PlaySoundFile(569143, "MASTER")
-    end
-end
 
 -- Play a sound effect when the player levels up.
 function BLU:PLAYER_LEVEL_UP(self, event, ...)
@@ -220,7 +200,6 @@ end
 
 -- Define a table of sound file IDs and their corresponding settings.
 local soundFileSettings = {
-    [569143] = "MuteAchievementDefault",
     [569593] = "MuteLevelDefault",
     [568016] = "MuteRepDefault",
     [567400] = "MuteQuestAcceptDefault",

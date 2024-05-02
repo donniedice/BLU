@@ -52,8 +52,6 @@ local soundOptions = {
 };
 BLU.defaults = {
 	profile = {
-		AchievementSoundSelect = 1,
-		MuteAchievementDefault = false,
 		LevelSoundSelect = 1,
 		MuteLevelDefault = false,
 		RepSoundSelect = 1,
@@ -77,40 +75,6 @@ BLU.options = {
 		group2 = {
 			type = "group",
 			order = 2,
-			name = "|cffffffffAchievement Earned!|r",
-			inline = true,
-			get = "GetValue",
-			set = "SetValue",
-			args = {
-				AchievementSoundSelect = {
-					type = "select",
-					order = 1,
-					name = "",
-					values = soundOptions,
-				},
-				TestAchievementSound = {
-					type = "execute",
-					order = 2,
-					image = "Interface\\Addons\\BLU\\Images\\PLAY.blp",
-						imageWidth = 20,
-						imageHeight = 20,
-					name = "",
-					desc = "",
-					func = TestAchievementSound,
-					},
-				MuteAchievementDefault = {
-					type = "toggle",
-					order = 3,
-					name = "|cffffffffMute Default|r",
-					desc = "|cff05dffaMute Default Achievement Earned Sound|r",
-					get = function(info) return BLU.db.profile.MuteAchievementDefault end,
-					set = function(info, value) BLU.db.profile.MuteAchievementDefault = value end,
-				},
-			},
-		},
-		group3 = {
-			type = "group",
-			order = 3,
 			name = "|cff05dffaLevel-Up!|r",
 			inline = true,
 			get = "GetValue",
@@ -142,9 +106,9 @@ BLU.options = {
 				},
 			},
 		},
-		group4 = {
+		group3 = {
 			type = "group",
-			order = 4,
+			order = 3,
 			name = "|cffffffffReputation Rank-Up!|r",
 			inline = true,
 			get = "GetValue",
@@ -176,9 +140,9 @@ BLU.options = {
 				},
 			},
 		},
-		group5 = {
+		group4 = {
 			type = "group",
-			order = 5,
+			order = 4,
 			name = "|cff05dffaQuest Accepted|r",
 			inline = true,
 			get = "GetValue",
@@ -210,9 +174,9 @@ BLU.options = {
 				},
 			},
 		},
-		group6 = {
+		group5 = {
 			type = "group",
-			order = 6,
+			order = 5,
 			name = "|cffffffffQuest Turn-In!|r",
 			inline = true,
 			get = "GetValue",
@@ -244,9 +208,9 @@ BLU.options = {
 				},
 			},
 		},
-		group7 = {
+		group6 = {
 			type = "header",
-			order = 7,
+			order = 6,
 			name = "|cff8080ff2.0.0|r",
 		},
 	},
