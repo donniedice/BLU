@@ -1,11 +1,10 @@
 ## Interface: 110002
-## Version: v5.2.0
-## Title: |cff05dffaB|r|cffffffffetter|r |cff05dffaL|r|cffffffffevel-|r|cff05dffaU|r|cffffffffp!|r - |cff8080ffv5.2.0|r 
+## Version: v6.0.0
+## Title: |cff05dffaB|r|cffffffffetter|r |cff05dffaL|r|cffffffffevel-|r|cff05dffaU|r|cffffffffp!|r - |cff8080ffv6.0.0|r 
 ## Notes: Play sounds from other games!  |n|r  |cff05dffa/blu -|r Open options panel  |n|r   |cff05dffaBy Uivi US-BleedingHollow|r
 ## Author: DonnieDice
 ## Email: donniedice@protonmail.com
-## SavedVariables: BLUDB, BLU_SavedVariables
-## OptionalDeps: Ace3
+## SavedVariables: BLUDB
 ## IconTexture: Interface\AddOns\BLU\images\icon
 
 ## X-Category: UI Media, Questing & Leveling, Audio & Video, Miscellaneous
@@ -14,23 +13,20 @@
 ## X-Wago-ID: vEGPgWK1
 ## X-WoWI-ID: 26465
 
-## Libraries
-Libs\LibStub\LibStub.lua
-Libs\CallbackHandler-1.0\CallbackHandler-1.0.xml
-Libs\AceAddon-3.0\AceAddon-3.0.xml
-Libs\AceEvent-3.0\AceEvent-3.0.xml
-Libs\AceTimer-3.0\AceTimer-3.0.xml
-Libs\AceDB-3.0\AceDB-3.0.xml
-Libs\AceDBOptions-3.0\AceDBOptions-3.0.xml
-Libs\AceLocale-3.0\AceLocale-3.0.xml
-Libs\AceConsole-3.0\AceConsole-3.0.xml
-Libs\AceGUI-3.0\AceGUI-3.0.xml
-Libs\AceConfig-3.0\AceConfig-3.0.xml
-
-data\localization.lua
+## Core Files
+data\localization\localization.lua
+data\options\options.xml
 data\initialization.lua
 data\sounds.lua
-data\utils.lua
-data\battlepets.lua
-data\core.lua
-data\options.lua
+data\utils\utils.xml
+
+## Modules (loaded via XML)
+data\modules\achievements\achievements.xml
+data\modules\battlepets\battlepets.xml
+data\modules\delves\delves.xml
+data\modules\honor\honor.xml
+data\modules\levelup\levelup.xml
+data\modules\quests\quests.xml
+data\modules\renown\renown.xml
+data\modules\reputation\reputation.xml
+data\modules\tradepost\tradepost.xml
