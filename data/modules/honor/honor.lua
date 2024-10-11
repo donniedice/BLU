@@ -18,22 +18,22 @@ function honor:OnLoad()
         self:HandleHonorLevelUpdate()
     end)
 
-    BLU:PrintDebugMessage(BLU_L["HONOR_MODULE_LOADED"])
+    BLU:PrintDebugMessage(BLU.L["HONOR_MODULE_LOADED"] or "Honor module loaded and initialized.")
 end
 
 -- =====================================================================================
 -- Test Honor Sound Trigger
 -- =====================================================================================
-function BLU:TestHonorSound()
-    self:TestSound("HonorSoundSelect", "HonorVolume", BLU.Modules.Sounds.defaultSounds[5], BLU_L["TEST_HONOR_SOUND"])
+function honor:TestHonorSound()
+    BLU:TestSound("HonorSoundSelect", "HonorVolume", BLU.Modules.Sounds.defaultSounds[5], BLU.L["TEST_HONOR_SOUND"] or "Test Honor Sound Triggered.")
 end
 
 -- =====================================================================================
 -- Handle Honor Level Update Event
 -- =====================================================================================
 function honor:HandleHonorLevelUpdate()
-    BLU:HandleEvent("HONOR_LEVEL_UPDATE", "HonorSoundSelect", "HonorVolume", BLU.Modules.Sounds.defaultSounds[5], BLU_L["HONOR_LEVEL_UPDATE_TRIGGERED"])
+    BLU:HandleEvent("HONOR_LEVEL_UPDATE", "HonorSoundSelect", "HonorVolume", BLU.Modules.Sounds.defaultSounds[5], BLU.L["HONOR_LEVEL_UPDATE_TRIGGERED"] or "Honor Level Update Triggered.")
 end
 
--- Return the module
+-- Register the module
 BLU.Modules.Honor = honor

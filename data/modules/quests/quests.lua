@@ -15,44 +15,44 @@ function quests:OnLoad()
     self.frame:RegisterEvent("QUEST_TURNED_IN")
 
     -- Set script for handling events
-    self.frame:SetScript("OnEvent", function(_, event)
+    self.frame:SetScript("OnEvent", function(_, event, ...)
         if event == "QUEST_ACCEPTED" then
-            self:HandleQuestAccepted()
+            self:HandleQuestAccepted(...)
         elseif event == "QUEST_TURNED_IN" then
-            self:HandleQuestTurnedIn()
+            self:HandleQuestTurnedIn(...)
         end
     end)
 
-    BLU:PrintDebugMessage(BLU_L["QUESTS_MODULE_LOADED"])
+    BLU:PrintDebugMessage(BLU.L["QUESTS_MODULE_LOADED"] or "Quests module loaded and initialized.")
 end
 
 -- =====================================================================================
 -- Handle Quest Accepted Event
 -- =====================================================================================
-function quests:HandleQuestAccepted()
-    BLU:HandleEvent("QUEST_ACCEPTED", "QuestAcceptSoundSelect", "QuestAcceptVolume", BLU.Modules.Sounds.defaultSounds[7], BLU_L["QUEST_ACCEPTED_TRIGGERED"])
+function quests:HandleQuestAccepted(...)
+    BLU:HandleEvent("QUEST_ACCEPTED", "QuestAcceptSoundSelect", "QuestAcceptVolume", BLU.Modules.Sounds.defaultSounds[7], BLU.L["QUEST_ACCEPTED_TRIGGERED"] or "Quest Accepted Triggered.")
 end
 
 -- =====================================================================================
 -- Handle Quest Turned In Event
 -- =====================================================================================
-function quests:HandleQuestTurnedIn()
-    BLU:HandleEvent("QUEST_TURNED_IN", "QuestSoundSelect", "QuestVolume", BLU.Modules.Sounds.defaultSounds[8], BLU_L["QUEST_TURNED_IN_TRIGGERED"])
+function quests:HandleQuestTurnedIn(...)
+    BLU:HandleEvent("QUEST_TURNED_IN", "QuestSoundSelect", "QuestVolume", BLU.Modules.Sounds.defaultSounds[8], BLU.L["QUEST_TURNED_IN_TRIGGERED"] or "Quest Turned In Triggered.")
 end
 
 -- =====================================================================================
 -- Test Quest Accepted Sound Trigger
 -- =====================================================================================
 function BLU:TestQuestAcceptSound()
-    self:TestSound("QuestAcceptSoundSelect", "QuestAcceptVolume", BLU.Modules.Sounds.defaultSounds[7], BLU_L["TEST_QUEST_ACCEPT_SOUND"])
+    self:TestSound("QuestAcceptSoundSelect", "QuestAcceptVolume", BLU.Modules.Sounds.defaultSounds[7], BLU.L["TEST_QUEST_ACCEPT_SOUND"] or "Test Quest Accepted Sound Triggered.")
 end
 
 -- =====================================================================================
 -- Test Quest Turned In Sound Trigger
 -- =====================================================================================
 function BLU:TestQuestSound()
-    self:TestSound("QuestSoundSelect", "QuestVolume", BLU.Modules.Sounds.defaultSounds[8], BLU_L["TEST_QUEST_SOUND"])
+    self:TestSound("QuestSoundSelect", "QuestVolume", BLU.Modules.Sounds.defaultSounds[8], BLU.L["TEST_QUEST_SOUND"] or "Test Quest Turned In Sound Triggered.")
 end
 
--- Return the module
+-- Register the module
 BLU.Modules.Quests = quests

@@ -11,7 +11,7 @@ function reputation:OnLoad()
     if not BLU.chatFrameHooked then
         self:ReputationChatFrameHook()
         BLU.chatFrameHooked = true
-        BLU:PrintDebugMessage(BLU_L["REPUTATION_MODULE_LOADED"])
+        BLU:PrintDebugMessage(BLU.L["REPUTATION_MODULE_LOADED"] or "Reputation module loaded and initialized.")
     end
 end
 
@@ -19,7 +19,7 @@ end
 -- Test Reputation Sound Trigger
 -- =====================================================================================
 function BLU:TestRepSound()
-    self:TestSound("RepSoundSelect", "RepVolume", BLU.Modules.Sounds.defaultSounds[6], BLU_L["TEST_REP_SOUND"])
+    self:TestSound("RepSoundSelect", "RepVolume", BLU.Modules.Sounds.defaultSounds[6], BLU.L["TEST_REP_SOUND"] or "Test Reputation Sound Triggered.")
 end
 
 -- =====================================================================================
@@ -34,31 +34,31 @@ function reputation:ReputationChatFrameHook()
 
     -- Set script for handling the event
     frame:SetScript("OnEvent", function(_, _, msg)
-        BLU:PrintDebugMessage(BLU_L["INCOMING_CHAT_MESSAGE"]:format(msg))
+        BLU:PrintDebugMessage(BLU.L["INCOMING_CHAT_MESSAGE"]:format(msg) or ("Incoming Chat Message: " .. msg))
 
         local rankPatterns = {
-            { "Exalted", BLU_L["RANK_EXALTED"] },
-            { "Revered", BLU_L["RANK_REVERED"] },
-            { "Honored", BLU_L["RANK_HONORED"] },
-            { "Friendly", BLU_L["RANK_FRIENDLY"] },
-            { "Neutral", BLU_L["RANK_NEUTRAL"] },
-            { "Unfriendly", BLU_L["RANK_UNFRIENDLY"] },
-            { "Hostile", BLU_L["RANK_HOSTILE"] },
-            { "Hated", BLU_L["RANK_HATED"] },
-            { "Acquaintance", BLU_L["RANK_ACQUAINTANCE"] },
-            { "Crony", BLU_L["RANK_CRONY"] },
-            { "Accomplice", BLU_L["RANK_ACCOMPLICE"] },
-            { "Collaborator", BLU_L["RANK_COLLABORATOR"] },
-            { "Accessory", BLU_L["RANK_ACCESSORY"] },
-            { "Abettor", BLU_L["RANK_ABETTOR"] },
-            { "Conspirator", BLU_L["RANK_CONSPIRATOR"] },
-            { "Mastermind", BLU_L["RANK_MASTERMIND"] },
+            { "Exalted", BLU.L["RANK_EXALTED"] or "Exalted" },
+            { "Revered", BLU.L["RANK_REVERED"] or "Revered" },
+            { "Honored", BLU.L["RANK_HONORED"] or "Honored" },
+            { "Friendly", BLU.L["RANK_FRIENDLY"] or "Friendly" },
+            { "Neutral", BLU.L["RANK_NEUTRAL"] or "Neutral" },
+            { "Unfriendly", BLU.L["RANK_UNFRIENDLY"] or "Unfriendly" },
+            { "Hostile", BLU.L["RANK_HOSTILE"] or "Hostile" },
+            { "Hated", BLU.L["RANK_HATED"] or "Hated" },
+            { "Acquaintance", BLU.L["RANK_ACQUAINTANCE"] or "Acquaintance" },
+            { "Crony", BLU.L["RANK_CRONY"] or "Crony" },
+            { "Accomplice", BLU.L["RANK_ACCOMPLICE"] or "Accomplice" },
+            { "Collaborator", BLU.L["RANK_COLLABORATOR"] or "Collaborator" },
+            { "Accessory", BLU.L["RANK_ACCESSORY"] or "Accessory" },
+            { "Abettor", BLU.L["RANK_ABETTOR"] or "Abettor" },
+            { "Conspirator", BLU.L["RANK_CONSPIRATOR"] or "Conspirator" },
+            { "Mastermind", BLU.L["RANK_MASTERMIND"] or "Mastermind" },
         }
 
         local rankFound = false
         for _, pattern in ipairs(rankPatterns) do
             if string.match(msg, "You are now " .. pattern[1] .. " with") or string.match(msg, "Your standing with") then
-                BLU:PrintDebugMessage(BLU_L["RANK_FOUND"]:format(pattern[2]))
+                BLU:PrintDebugMessage(BLU.L["RANK_FOUND"]:format(pattern[2]) or "Rank found: " .. pattern[2])
                 self:ReputationRankIncrease(pattern[2], msg)
                 rankFound = true
                 break
@@ -66,7 +66,7 @@ function reputation:ReputationChatFrameHook()
         end
 
         if not rankFound then
-            BLU:PrintDebugMessage(BLU_L["NO_RANK_FOUND"])
+            BLU:PrintDebugMessage(BLU.L["NO_RANK_FOUND"] or "No rank found in the message.")
         end
 
         return false -- Ensure the message is not blocked from being displayed
@@ -79,9 +79,9 @@ end
 function reputation:ReputationRankIncrease(rank, msg)
     -- Extract the faction name from the message
     local factionName = string.match(msg, "with (.+)")
-    
+
     -- Use HandleEvent for consistency
-    BLU:HandleEvent("REPUTATION_RANK_INCREASE", "RepSoundSelect", "RepVolume", BLU.Modules.Sounds.defaultSounds[6], BLU_L["REPUTATION_RANK_INCREASE_TRIGGERED"]:format(rank, factionName))
+    BLU:HandleEvent("REPUTATION_RANK_INCREASE", "RepSoundSelect", "RepVolume", BLU.Modules.Sounds.defaultSounds[6], BLU.L["REPUTATION_RANK_INCREASE_TRIGGERED"]:format(rank, factionName) or ("Reputation rank increased to " .. rank .. " with " .. factionName))
 end
 
 -- Return the module

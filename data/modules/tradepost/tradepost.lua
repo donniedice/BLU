@@ -12,7 +12,7 @@ function tradepost:HandlePerksActivityCompleted()
         "PostSoundSelect",
         "PostVolume",
         BLU.Modules.Sounds.defaultSounds[9],
-        "PERKS_ACTIVITY_COMPLETED_TRIGGERED"
+        BLU.L["PERKS_ACTIVITY_COMPLETED_TRIGGERED"] or "Perks Activity Completed Triggered"
     )
 end
 
@@ -20,7 +20,7 @@ end
 -- Test Post Sound
 -- =====================================================================================
 function tradepost:TestPostSound()
-    BLU:TestSound("PostSoundSelect", "PostVolume", BLU.Modules.Sounds.defaultSounds[9], "TEST_POST_SOUND")
+    BLU:TestSound("PostSoundSelect", "PostVolume", BLU.Modules.Sounds.defaultSounds[9], BLU.L["TEST_POST_SOUND"] or "Test Post Sound Triggered")
 end
 
 -- =====================================================================================
@@ -40,7 +40,7 @@ function tradepost:OnLoad()
         end
     end)
 
-    BLU:PrintDebugMessage(BLU_L["PERKS_MODULE_LOADED"])
+    BLU:PrintDebugMessage(BLU.L["PERKS_MODULE_LOADED"] or "Perks Module Loaded")
 end
 
 -- =====================================================================================

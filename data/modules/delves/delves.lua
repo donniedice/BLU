@@ -20,14 +20,14 @@ function delves:OnLoad()
         self:OnDelveCompanionLevelUp(event, ...)
     end)
 
-    BLU:PrintDebugMessage(BLU_L["DELVE_MODULE_LOADED"])
+    BLU:PrintDebugMessage(BLU.L["DELVE_MODULE_LOADED"] or "Delves module loaded and initialized.")
 end
 
 -- =====================================================================================
 -- Test Sound Trigger Functions
 -- =====================================================================================
 function delves:TestDelveLevelUpSound()
-    BLU:TestSound("DelveLevelUpSoundSelect", "DelveLevelUpVolume", BLU.Modules.Sounds.defaultSounds[3], BLU_L["TEST_DELVE_LEVEL_UP_SOUND"])
+    BLU:TestSound("DelveLevelUpSoundSelect", "DelveLevelUpVolume", BLU.Modules.Sounds.defaultSounds[3], BLU.L["TEST_DELVE_LEVEL_UP_SOUND"] or "Test Delve Level-Up Sound Triggered.")
 end
 
 -- =====================================================================================
@@ -35,21 +35,21 @@ end
 -- =====================================================================================
 function delves:OnDelveCompanionLevelUp(event, ...)
     -- Print debug message for the triggering event
-    BLU:PrintDebugMessage(BLU_L["EVENT_TRIGGERED"]:format(event))
+    BLU:PrintDebugMessage(BLU.L["EVENT_TRIGGERED"]:format(event) or "Event Triggered: " .. event)
 
     -- Only proceed with the CHAT_MSG_SYSTEM event to finalize the check
     if event == "CHAT_MSG_SYSTEM" then
         local msg = ...
-        BLU:PrintDebugMessage(BLU_L["INCOMING_CHAT_MESSAGE"]:format(msg))
+        BLU:PrintDebugMessage(BLU.L["INCOMING_CHAT_MESSAGE"]:format(msg) or "Incoming Chat Message: " .. msg)
 
         -- Check if the level-up message for Brann is found in the chat (localized)
-        local levelUpMatch = string.match(msg, BLU_L["BRANN_LEVEL_UP_MATCH"])
+        local levelUpMatch = string.match(msg, BLU.L["BRANN_LEVEL_UP_MATCH"])
         if levelUpMatch then
             local level = tonumber(levelUpMatch)
-            BLU:PrintDebugMessage(BLU_L["BRANN_LEVEL_UP_DETECTED"]:format(level))
-            BLU:TriggerDelveLevelUpSound(level)
+            BLU:PrintDebugMessage(BLU.L["BRANN_LEVEL_UP_DETECTED"]:format(level) or "Brann Level-Up Detected: Level " .. level)
+            self:TriggerDelveLevelUpSound(level)
         else
-            BLU:PrintDebugMessage(BLU_L["NO_BRANN_LEVEL_FOUND"])
+            BLU:PrintDebugMessage(BLU.L["NO_BRANN_LEVEL_FOUND"] or "No Brann Level-Up Found.")
         end
     end
 end
@@ -58,8 +58,8 @@ end
 -- Trigger Delve Level-Up Sound
 -- =====================================================================================
 function delves:TriggerDelveLevelUpSound(level)
-    BLU:HandleEvent("DELVE_LEVEL_UP", "DelveLevelUpSoundSelect", "DelveLevelUpVolume", BLU.Modules.Sounds.defaultSounds[3], BLU_L["DELVE_LEVEL_UP_SOUND_TRIGGERED"]:format(level))
+    BLU:HandleEvent("DELVE_LEVEL_UP", "DelveLevelUpSoundSelect", "DelveLevelUpVolume", BLU.Modules.Sounds.defaultSounds[3], BLU.L["DELVE_LEVEL_UP_SOUND_TRIGGERED"]:format(level) or "Delve Level-Up Sound Triggered for Level " .. level)
 end
 
--- Return the module
+-- Register the module
 BLU.Modules.Delves = delves

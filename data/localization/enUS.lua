@@ -1,11 +1,8 @@
--- =====================================================================================
--- BLU | Better Level-Up! - Localization for enUS.lua
--- =====================================================================================
+-- enUS localization for Better Level-Up!
+local _, BLULocale = ...
 
--- Load the localization table for the addon
-BLU_L = BLULocale:GetLocale("BLU") -- Ensure BLU_L is initialized correctly
-
-if not BLU_L then return end
+BLULocale = BLULocale or {}
+local L = BLULocale
 
 -- Option Colors
 BLU_L["optionColor1"] = "|cff05dffa"

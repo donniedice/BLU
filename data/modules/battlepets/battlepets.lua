@@ -2,10 +2,6 @@
 -- BLU | Better Level-Up! - battlepets.lua
 -- =====================================================================================
 local battlepets = {}
-
--- ============================
--- Constants
--- ============================
 local MAX_PET_LEVEL = 25 -- Maximum battle pet level
 
 -- ============================
@@ -19,7 +15,7 @@ function battlepets:HandlePetLevelUp(petID)
         return
     end
 
-    local displayName = petName or BLU_L["UNKNOWN_PET"]
+    local displayName = petName or BLU.L["UNKNOWN_PET"]
     BLU:PrintDebugMessage("PET_LEVEL_UP_TRIGGERED for " .. displayName .. ", Level: " .. level)
 
     self:TriggerLevelUpSound(displayName, level)

@@ -14,10 +14,9 @@
 ## X-WoWI-ID: 26465
 
 ## Core Files
-data\localization\localization.lua
-data\options\options.xml
+#data\localization\localization.xml  -- Ensure this is first
 data\initialization.lua
-data\sounds.lua
+#data\options\options.xml
 data\utils\utils.xml
 
 ## Modules (loaded via XML)
