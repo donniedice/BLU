@@ -6,13 +6,16 @@
 ## Email: donniedice@protonmail.com
 ## SavedVariables: BLUDB, BLU_SavedVariables
 ## OptionalDeps: Ace3
-## IconTexture: Interface\AddOns\BLU\images\icon
+## IconTexture: Interface\AddOns\BLU\media\images\icon
 
 ## X-Category: UI Media, Questing & Leveling, Audio & Video, Miscellaneous
 ## X-Website: https://github.com/donniedice/BLU
 ## X-Curse-Project-ID: 697841
 ## X-Wago-ID: vEGPgWK1
 ## X-WoWI-ID: 26465
+
+## Debug file (disabled)
+# debug.lua
 
 ## Main Loader
 blu.xml

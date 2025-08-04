@@ -31,7 +31,17 @@
       "Bash(sed:*)",
       "Bash(git tag:*)",
       "Bash(touch:*)",
-      "Bash(git mv:*)"
+      "Bash(git mv:*)",
+      "Bash(dir:*)",
+      "Bash(cmd /c:*)",
+      "Bash(powershell:*)",
+      "Bash(lua:*)",
+      "Bash(del \"C:\\Users\\JosephGettings\\BLU\\nul\")",
+      "Bash(ren:*)",
+      "Bash(find:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:warcraft.wiki.gg)",
+      "Bash(del \"C:\\Users\\JosephGettings\\BLU\\exclude.txt\")"
     ],
     "deny": []
   }
