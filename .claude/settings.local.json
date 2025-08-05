@@ -43,7 +43,8 @@
       "WebFetch(domain:warcraft.wiki.gg)",
       "Bash(del \"C:\\Users\\JosephGettings\\BLU\\exclude.txt\")",
       "WebFetch(domain:www.wowhead.com)",
-      "WebFetch(domain:wowpedia.fandom.com)"
+      "WebFetch(domain:wowpedia.fandom.com)",
+      "Bash(git clone:*)"
     ],
     "deny": []
   }
