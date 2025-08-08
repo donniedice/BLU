@@ -45,7 +45,8 @@
       "WebFetch(domain:www.wowhead.com)",
       "WebFetch(domain:wowpedia.fandom.com)",
       "Bash(git clone:*)",
-      "Bash(del \"C:\\Users\\JosephGettings\\BLU\\modules\\interface\\panels\\quest_panel.lua\")"
+      "Bash(del \"C:\\Users\\JosephGettings\\BLU\\modules\\interface\\panels\\quest_panel.lua\")",
+      "Bash(git ls-tree:*)"
     ],
     "deny": []
   }
